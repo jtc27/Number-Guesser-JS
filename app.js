@@ -11,7 +11,7 @@ Game:
 //game values
 let min = 3, 
     max = 10,
-    winningNum = 2,
+    winningNum = 5,
     guessesLeft = 3;
 
 //UI Elements
@@ -32,15 +32,26 @@ UIguessBtn.addEventListener('click', function(){
 
   //validate input
   if( isNaN(guess) || guess < min || guess > max){
-    setMessage(`Please enter a number between ${min} and ${max}`)
-  } else{
+    setMessage(`Please enter a number between ${min} and ${max}`, 'red')
+  } 
+
+  //Did player win?
+  if(guess === winningNum){
+    //disable input field
+    UIguessInput.disabled = true
+
+    //green border ftw
+    UIguessInput.style.borderColor = 'green'
+
+    setMessage(`You Win!  The winning number is ${winningNum}!`, 'green')
+  } else {
 
   }
 
 })
 
 // Outputs error message to UI
-function setMessage(message){
-  UImessage.textContent= message;
-  UImessage.style.color = 'red';
+function setMessage(message, color){
+  UImessage.textContent = message;
+  UImessage.style.color = color;
 }
