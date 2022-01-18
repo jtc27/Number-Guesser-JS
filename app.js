@@ -9,9 +9,9 @@ Game:
 */
 
 //game values
-let min = 3, 
-    max = 10,
-    winningNum = 5,
+let min = 0, 
+    max = 3,
+    winningNum = randomWinningNum(min, max),
     guessesLeft = 3;
 
 //UI Elements
@@ -83,3 +83,10 @@ function setMessage(message, color){
   UImessage.textContent = message;
   UImessage.style.color = color;
 }
+
+function randomWinningNum(min, max){
+  return Math.floor(Math.random()*(max - min + 1) + min)
+}
+
+//hoisting: Javascript, we can call functions before declaring them
+
