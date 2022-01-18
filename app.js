@@ -37,6 +37,7 @@ UIguessBtn.addEventListener('click', function(){
 
   //Did player win?
   if(guess === winningNum){
+    //WIN
     //disable input field
     UIguessInput.disabled = true
 
@@ -45,6 +46,19 @@ UIguessBtn.addEventListener('click', function(){
 
     setMessage(`You Win!  The winning number is ${winningNum}!`, 'green')
   } else {
+    //wrong guess
+    guessesLeft -= 1;
+
+    if (guessesLeft === 0){
+      UIguessInput.disabled = true
+      UIguessInput.style.borderColor = 'red'
+      setMessage(`Sorry you lose, the correct number was ${winningNum}`, 'red')
+    } else {
+      //game continues
+      UIguessInput.value = ''
+      UIguessInput.style.borderColor = 'red'
+      setMessage(`${guess} is not correct.  You have ${guessesLeft} guesses left`, 'red')
+    }
 
   }
 
