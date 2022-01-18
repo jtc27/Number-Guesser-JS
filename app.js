@@ -37,17 +37,18 @@ UIguessBtn.addEventListener('click', function(){
 
   //Did player win?
   if(guess === winningNum){
-    UIguessInput.disabled = true
     gameOver('win', `You Win!  The winning number is ${winningNum}!`)
   } else {
+    //wrong guess
     guessesLeft -= 1;
 
     if (guessesLeft === 0){
-      UIguessInput.disabled = true
-      gameOver('game-over', `Sorry you lose, the correct number was ${winningNum}`)
+      gameOver('lose', `Sorry you lose, the correct number was ${winningNum}`)
     } else {
+      //game continues
       UIguessInput.value = ''
-      gameOver('incorrect-try-again', `${guess} is not correct.  You have ${guessesLeft} guesses left`)
+      UIguessInput.style.borderColor = 'red'
+      setMessage(`${guess} is not correct.  You have ${guessesLeft} guesses left`, 'red')
     }
 
   }
@@ -58,9 +59,12 @@ function gameOver(result, msg){
   let color;
   result === 'win' ? color = 'green' : color = 'red';
 
+  UIguessInput.disabled = true
   UIguessInput.style.borderColor = color
 
   setMessage(msg, color)
+
+  UIguessBtn.value = 'Play Again'
 }
 
 // Outputs error message to UI
