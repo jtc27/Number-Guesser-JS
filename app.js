@@ -26,4 +26,20 @@ const UIgame = document.querySelector('#game'),  // OR document.getElementById('
 UIminNum.textContent = min
 UImaxNum.textContent = max
 
+//Btn event listener
+UIguessBtn.addEventListener('click', function(){
+  let guess = parseInt(UIguessInput.value); //makes the input an integer, and a variable
 
+  //validate input
+  if( isNaN(guess) || guess < min || guess > max){
+    setMessage(`Please enter a number between ${min} and ${max}`)
+  } else{
+
+  }
+
+})
+
+// Outputs error message to UI
+function setMessage(message){
+  UImessage.textContent= message
+}
