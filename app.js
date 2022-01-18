@@ -15,7 +15,7 @@ let min = 3,
     guessesLeft = 3;
 
 //UI Elements
-const UIgame = document.querySelector('#game'),  // OR document.getElementById('game'),
+const UIgameWrapper = document.querySelector('#game'),  // OR document.getElementById('game'),
       UIminNum = document.querySelector('.min-num'),  //class is . // id is #
       UImaxNum = document.querySelector('.max-num'),
       UIguessBtn = document.querySelector('#guess-btn'),
@@ -50,9 +50,15 @@ UIguessBtn.addEventListener('click', function(){
       UIguessInput.style.borderColor = 'red'
       setMessage(`${guess} is not correct.  You have ${guessesLeft} guesses left`, 'red')
     }
-
   }
+})
 
+//BTN 'Play again' event listener
+// mousedown instead of 'click'.  if you click, it will 'mouseup' and hit 'play-again'.
+UIgameWrapper.addEventListener('mousedown', function(e){
+  if(e.target.className === 'play-again'){
+    window.location.reload()
+  }
 })
 
 function gameOver(result, msg){
@@ -65,6 +71,7 @@ function gameOver(result, msg){
   setMessage(msg, color)
 
   UIguessBtn.value = 'Play Again'
+  UIguessBtn.className += 'play-again' //class for the button is created, 'play-again'
 }
 
 // Outputs error message to UI
