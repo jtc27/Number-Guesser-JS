@@ -53,13 +53,17 @@ UIguessBtn.addEventListener('click', function(){
   }
 })
 
-//BTN 'Play again' event listener
+// BTN 'Play again' event listener
 // mousedown instead of 'click'.  if you click, it will 'mouseup' and hit 'play-again'.
 UIgameWrapper.addEventListener('mousedown', function(e){
   if(e.target.className === 'play-again'){
     window.location.reload()
   }
 })
+/* The listener is not on UIguessBtn.  The 'play-again' class is added AFTER the page loads.
+So the listener needs to be put on a parent: UIgameWrapper
+This is called 'event delegation'
+*/
 
 function gameOver(result, msg){
   let color;
