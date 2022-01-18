@@ -41,5 +41,6 @@ UIguessBtn.addEventListener('click', function(){
 
 // Outputs error message to UI
 function setMessage(message){
-  UImessage.textContent= message
+  UImessage.textContent= message;
+  UImessage.style.color = 'red';
 }
