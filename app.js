@@ -9,7 +9,7 @@ Game:
 */
 
 //game values
-let min = 1, 
+let min = 3, 
     max = 10,
     winningNum = 2,
     guessesLeft = 3;
@@ -20,4 +20,10 @@ const UIgame = document.querySelector('#game'),  // OR document.getElementById('
       UImaxNum = document.querySelector('.max-num'),
       UIguessBtn = document.querySelector('#guess-btn'),
       UIguessInput = document.querySelector('#guess-input'),
-      UImessage = document.querySelector('.message')
+      UImessage = document.querySelector('.message');
+
+//UI min and max assign
+UIminNum.textContent = min
+UImaxNum.textContent = max
+
+
