@@ -9,8 +9,8 @@ Game:
 */
 
 //game values
-let min = 0, 
-    max = 3,
+let min = 4, 
+    max = 9,
     winningNum = randomWinningNum(min, max),
     guessesLeft = 3;
 
@@ -33,23 +33,23 @@ UIguessBtn.addEventListener('click', function(){
   //validate input
   if( isNaN(guess) || guess < min || guess > max){
     setMessage(`Please enter a number between ${min} and ${max}`, 'red')
-  } 
-
-  //Did player win?
-  if(guess === winningNum){
-    gameOver('win', `You Win!  The winning number is ${winningNum}!`)
   } else {
-    //wrong guess
-    guessesLeft -= 1;
+      //Did player win?
+      if(guess === winningNum){
+        gameOver('win', `You Win!  The winning number is ${winningNum}!`)
+      } else {
+        //wrong guess
+        guessesLeft -= 1;
 
-    if (guessesLeft === 0){
-      gameOver('lose', `Sorry you lose, the correct number was ${winningNum}`)
-    } else {
-      //game continues
-      UIguessInput.value = ''
-      UIguessInput.style.borderColor = 'red'
-      setMessage(`${guess} is not correct.  You have ${guessesLeft} guesses left`, 'red')
-    }
+        if (guessesLeft === 0){
+          gameOver('lose', `Sorry you lose, the correct number was ${winningNum}`)
+        } else {
+          //game continues
+          UIguessInput.value = ''
+          UIguessInput.style.borderColor = 'red'
+          setMessage(`${guess} is not correct.  You have ${guessesLeft} guesses left`, 'red')
+        }
+      }
   }
 })
 
