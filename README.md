@@ -17,7 +17,7 @@
 
 | Tool  | Description |
 | ------------- | ------------- |
-|  [Skeleton](https://cdnjs.com/libraries/skeleton)  | Skeleton CDN  |
+|  [Skeleton](https://cdnjs.com/libraries/skeleton)  | Skeleton CDN: Small collection of CSS files that can help you rapidly develop sites that look beautiful at any size  |
 
 
 
