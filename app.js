@@ -18,13 +18,15 @@ let min = 4,
 const UIgameWrapper = document.querySelector('#game'),  // OR document.getElementById('game'),
       UIminNum = document.querySelector('.min-num'),  //class is . // id is #
       UImaxNum = document.querySelector('.max-num'),
+      UIguessesLeft = document.querySelector('.guesses-left'),
       UIguessBtn = document.querySelector('#guess-btn'),
       UIguessInput = document.querySelector('#guess-input'),
       UImessage = document.querySelector('.message');
 
-//UI min and max assign
+//UI min, max, guesses left
 UIminNum.textContent = min
 UImaxNum.textContent = max
+UIguessesLeft.textContent = guessesLeft
 
 //Btn event listener
 UIguessBtn.addEventListener('click', function(){
@@ -40,6 +42,7 @@ UIguessBtn.addEventListener('click', function(){
       } else {
         //wrong guess
         guessesLeft -= 1;
+        UIguessesLeft.textContent = guessesLeft
 
         if (guessesLeft === 0){
           gameOver('lose', `Sorry you lose, the correct number was ${winningNum}`)
